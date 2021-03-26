@@ -1,10 +1,44 @@
-import { IProduct } from './types';
+import { ActionTypes, IProduct } from './types';
 
-export function addProductToCart(product: IProduct) {
+interface IAddProductToCart {
+  type: string;
+  payload: {
+    product: IProduct;
+  };
+}
+
+interface IAddProductToCartFailure {
+  type: string;
+  payload: {
+    productId: number;
+  };
+}
+
+export function addProductToCartRequest(product: IProduct): IAddProductToCart {
   return {
-    type: 'ADD_PRODUCT_TO_CART',
+    type: ActionTypes.addProductToCartRequest,
     payload: {
       product,
+    },
+  };
+}
+
+export function addProductToCartSuccess(product: IProduct): IAddProductToCart {
+  return {
+    type: ActionTypes.addProductToCartSuccess,
+    payload: {
+      product,
+    },
+  };
+}
+
+export function addProductToCartFailure(
+  productId: number,
+): IAddProductToCartFailure {
+  return {
+    type: ActionTypes.addProductToCartFailure,
+    payload: {
+      productId,
     },
   };
 }
