@@ -5,7 +5,7 @@
 </h1>
 
 ## 🔎️ Description
-A simple React.js application to test Redux features.
+A React.js application to test Redux features.
 
 ## 🚀️ Technologies
 
